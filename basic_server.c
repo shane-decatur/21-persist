@@ -9,12 +9,11 @@ int main() {
   while (1){
 
     from_client = server_handshake( &to_client );
-    printf("awaiting client\n");
 
-    while (from_client){
-      printf("client connected\n");
-      char line[BUFFER_SIZE];
-      read(from_client,line,BUFFER_SIZE);
+    printf("Client connected\n");
+    char *line = calloc(BUFFER_SIZE,1);
+
+    while (read(from_client,line,BUFFER_SIZE)){
 
       int i = 0;
       for (i = 0; i < strlen(line); i++) {
@@ -22,8 +21,10 @@ int main() {
   		}
 
       write(to_client,line,BUFFER_SIZE);
-      from_client = 0;
     }
+    printf("Client exited\n");
+
+
   }
 
 
