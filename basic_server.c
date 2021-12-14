@@ -22,6 +22,7 @@ int main() {
   		}
 
       write(to_client,line,BUFFER_SIZE);
+      from_client = 0;
     }
   }
 

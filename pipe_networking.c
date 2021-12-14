@@ -17,7 +17,7 @@ int server_handshake(int *to_client) {
   char secret_name[HANDSHAKE_BUFFER_SIZE];
   read(from_client,secret_name,HANDSHAKE_BUFFER_SIZE);
   printf("server connected, secret name: %s\n",secret_name);
-  remove(WKP);
+  // remove(WKP);
 
   *to_client = open(secret_name,O_WRONLY);
   printf("opened private server\n");
