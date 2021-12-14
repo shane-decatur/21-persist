@@ -7,4 +7,13 @@ int main() {
   int from_server;
 
   from_server = client_handshake( &to_server );
+
+  char line[BUFFER_SIZE];
+  printf("input message: \n");
+  fgets(line, BUFFER_SIZE, stdin);
+  write(to_server,line,BUFFER_SIZE);
+
+  read(from_server,line,BUFFER_SIZE);
+  printf("your message but loud: %s",line);
+  
 }
